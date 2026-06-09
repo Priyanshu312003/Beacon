@@ -1,14 +1,10 @@
 from search import search_web
-from scraper import scrape_page
 from synthesizer import synthesize_report
 
 def run_beacon(topic: str):
     print("Searching web...")
-    urls = search_web(topic)
-    
-    print("Scraping pages...")
-    pages = [scrape_page(url) for url in urls]
-    pages = [p for p in pages if p]  # remove failed scrapes
+    results = search_web(topic)
+    pages = [r["content"] for r in results]
     
     print("Synthesizing report...")
     report = synthesize_report(topic,pages)
