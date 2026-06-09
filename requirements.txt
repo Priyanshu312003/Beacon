@@ -1,0 +1,6 @@
+tavily-python
+python-dotenv
+httpx
+beautifulsoup4
+openai
+streamlit
