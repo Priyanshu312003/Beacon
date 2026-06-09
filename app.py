@@ -80,7 +80,8 @@ if st.button("Run Research"):
             report = synthesize_report(topic, pages)
 
             os.makedirs("outputs", exist_ok=True)
-            filename = f"outputs/{topic.replace(' ', '_')}_report.md"
+            safe_topic = topic.replace(' ', '_').replace('?', '').replace('/', '').replace('\\', '')
+            filename = f"outputs/{safe_topic}_report.md"
             with open(filename, "w") as f:
                 f.write(report)
 
