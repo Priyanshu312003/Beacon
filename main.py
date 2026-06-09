@@ -8,6 +8,7 @@ def run_beacon(topic: str):
     
     print("Scraping pages...")
     pages = [scrape_page(url) for url in urls]
+    pages = [p for p in pages if p]  # remove failed scrapes
     
     print("Synthesizing report...")
     report = synthesize_report(topic,pages)
